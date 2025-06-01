@@ -1,0 +1,1 @@
+This repository contains basic HTML and CSS code snippets and layouts I created while learning web development. It includes practice with HTML structure, forms, tables, semantic tags, and CSS styling such as flexbox, grid, positioning, and responsive design. These exercises helped me understand how to build and style web pages from scratch.
