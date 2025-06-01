@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ChatGPT Bot</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .chat-container {
+      background: white;
+      padding: 20px;
+      width: 400px;
+      height: 500px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    .message {
+      margin: 10px 0;
+    }
+    .user {
+      text-align: right;
+      color: #2c7;
+    }
+    .bot {
+      text-align: left;
+      color: #555;
+    }
+    input {
+      padding: 10px;
+      width: calc(100% - 60px);
+    }
+    button {
+      padding: 10px;
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="messages" id="messages"></div>
+    <div>
+      <input type="text" id="userInput" placeholder="Type here..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage('user', text);
+      input.value = '';
+      appendMessage('bot', 'Typing...');
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+
+      const data = await res.json();
+      document.querySelectorAll('.bot:last-child')[0].remove();
+      appendMessage('bot', data.reply);
+    }
+
+    function appendMessage(role, text) {
+      const div = document.createElement('div');
+      div.className = 'message ' + role;
+      div.textContent = (role === 'user' ? '🧑 ' : '🤖 ') + text;
+      document.getElementById('messages').appendChild(div);
+    }
+  </script>
+</body>
+</html>

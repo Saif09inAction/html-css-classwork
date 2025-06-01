@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body{
+            background-color: #050938;
+        }
+        .main-container{
+            display: flex;
+            flex-direction: row;
+            gap: 400px;
+        }
+        .sub-container{
+            margin-top: 200px;
+            color : white;
+        }
+    </style>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="ribbon-banner.css">
+
+</head>
+<body>
+<div class="ribbon">
+<div class="ribbon-stitches-top"></div>
+<div class="ribbon-content"><p><b>CSS Ribbon Preview</b></p></div>
+<div class="ribbon-stitches-bottom"></div>
+</div>
+
+
+<div class="main-container">
+    <div class="sub-container"><dotlottie-player
+src="https://lottie.host/1799d053-2a22-421c-aa3d-c8b584b1d09e/b7jdARbjjM.lottie"
+background="transparent"
+speed="1"
+style="width: 300px; height: 300px"
+loop
+autoplay
+></dotlottie-player>
+</div>
+<div class="sub-container">
+    <!-- From Uiverse.io by Yaya12085 --> 
+<form class="form">
+    <p class="title">Register </p>
+    <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+        <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Firstname</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Lastname</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input required="" placeholder="" type="email" class="input">
+        <span>Email</span>
+    </label> 
+        
+    <label>
+        <input required="" placeholder="" type="password" class="input">
+        <span>Password</span>
+    </label>
+    <label>
+        <input required="" placeholder="" type="password" class="input">
+        <span>Confirm password</span>
+    </label>
+    <button class="submit">Submit</button>
+    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+</form>
+</div>
+</div>
+<script
+src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+type="module"
+></script>
+</body>
+</html>
